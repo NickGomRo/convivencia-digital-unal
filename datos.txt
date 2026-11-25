@@ -1,0 +1,52 @@
+=== INTRO
+Las redes sociales y las plataformas institucionales hacen parte de la vida universitaria: nos sirven para estudiar, organizarnos y relacionarnos.
+Pero a veces se usan para insultar, amenazar, discriminar o acosar. 
+Esas agresiones no se quedan en la pantalla: pueden afectar cómo te sientes, cómo estudias y cómo te relacionas con los demás.
+
+Esta página es una guía para estudiantes de la Universidad Nacional. 
+Aquí encuentras qué es una agresión digital, cómo identificarla, qué hacer si te pasa a ti o a alguien cercano y dónde pedir ayuda.
+
+=== DATOS
+1.  En una muestra de 639 estudiantes de la Universidad Pontificia Bolivariana (Bucaramanga), el 27,5 % había sido víctima de ciberacoso al menos una vez. (Redondo Pacheco et al., 2016)
+2.  Cerca del 92 % de los jóvenes de 16 a 24 años usa internet y redes sociales. (DANE, 2024)
+3.  La Sede Bogotá de la UNAL tiene 55.517 estudiantes matriculados; 49.663 son de pregrado. (UNAL, 2025)
+
+=== VIOLENCIA
+Es la violencia que se ejerce a través de medios digitales, como redes sociales, correos electrónicos, aplicaciones de mensajería y otros espacios donde se publican contenidos e intercambian opiniones. 
+Puede afectar la intimidad, la privacidad y la dignidad de las personas y causar daño psicológico y emocional. (Infoem, s.f.; Ministerio de Justicia y del Derecho, s.f.)
+
+=== CIBER
+Es una forma de acoso o intimidación que se ejerce con tecnologías digitales: redes sociales, plataformas de mensajería, videojuegos en línea, entre otras. Se caracteriza por repetirse en el tiempo y porque busca asustar, enfurecer o humillar a otra persona. Una diferencia importante con el acoso presencial: el ciberacoso deja un rastro digital que puede servir como prueba para detener la agresión. (UNICEF, 2026)
+
+=== CONVIVENCIA
+Es la capacidad de relacionarse con otras personas usando la tecnología de forma segura, respetuosa, ética y empática. Incluye estar informado, actuar con ética, ejercer la libertad de expresión y participar activamente. Algunos de sus componentes son la alfabetización digital, los riesgos y cuidados en el uso de redes y la responsabilidad digital.
+
+=== DIGITAL
+• Detrás de una pantalla nos sentimos protegidos. Suler (2004) llama a esto efecto de desinhibición en línea: el anonimato, la invisibilidad y la falta de contacto cara a cara hacen que algunas personas actúen de formas que no harían en persona.
+
+• Las conductas se copian. Según la teoría del aprendizaje social (Bandura, 1977), las personas imitan lo que ven. Si una agresión no tiene consecuencias o recibe aplausos, es más probable que se repita.
+
+• Un contexto de polarización. Los desacuerdos en política, educación o creencias pueden pasar de la discusión al ataque personal.
+
+=== CONS1
+Las agresiones pueden causar daños emocionales profundos y se han relacionado con ansiedad y depresión en estudiantes universitarios (Ali y Shahbuddin, 2022).
+
+=== CONS2
+El daño emocional y social puede bajar el rendimiento en los entornos de convivencia, incluido el estudio. Algunas personas dejan de participar en clase, evitan los grupos de trabajo o se ausentan.
+
+=== CONS3
+El daño a la reputación puede producir aislamiento social y pérdida de confianza en los compañeros.
+
+=== CONS4
+Un entorno digital hostil deteriora el ambiente universitario para todas las personas, también para quienes solo observan.
+
+=== MARCO
+En Colombia el ciberacoso no está tipificado como delito autónomo. Las agresiones digitales se abordan según la conducta: injuria, calumnia, amenazas, acoso sexual o manejo indebido de datos personales. Estas son las normas más relevantes:
+• Constitución Política de 1991: protege la intimidad y el buen nombre (art. 15), la libertad de expresión (art. 20) y la honra (art. 21). El art. 69 garantiza la autonomía universitaria.
+• Ley 1273 de 2009: protege la información y los datos; sanciona, entre otras, la violación de datos personales (art. 269F).
+• Código Penal (Ley 599 de 2000): injuria (art. 220), calumnia (art. 221) y amenazas (art. 347) pueden darse por medios digitales.
+• Ley 2365 de 2024: medidas de prevención, protección y atención del acoso sexual en el ámbito laboral y en instituciones de educación superior.
+• Ley 1581 de 2012: protección de datos personales.
+• Resolución 1215 de 2017 (Rectoría UNAL): protocolo de atención de violencias basadas en género y violencias sexuales.
+• Acuerdo 044 de 2009 (Consejo Superior UNAL): Estatuto Estudiantil, en sus disposiciones de bienestar y convivencia.
+Aviso para la página: esta información es orientativa y no reemplaza la asesoría de un profesional del derecho.
