@@ -24,22 +24,23 @@ st.markdown(
 )
 
 def subir_al_inicio(pagina):
-    components.html(
-        f"""
-        <!-- {pagina} -->
-        <script>
-            const doc = window.parent.document;
-            const zonas = [
-                doc.querySelector('[data-testid="stMain"]'),
-                doc.querySelector('section.main'),
-                doc.querySelector('.stMain'),
-            ];
-            zonas.forEach(z => {{ if (z) z.scrollTo({{top: 0, behavior: 'instant'}}); }});
-            window.parent.scrollTo(0, 0);
-        </script>
-        """,
-        height=0,
-    )
+    codigo = f"""
+    <!-- {pagina} -->
+    <script>
+        const doc = window.parent.document;
+        const zonas = [
+            doc.querySelector('[data-testid="stMain"]'),
+            doc.querySelector('section.main'),
+            doc.querySelector('.stMain'),
+        ];
+        zonas.forEach(z => {{ if (z) z.scrollTo({{top: 0, behavior: 'instant'}}); }});
+        window.parent.scrollTo(0, 0);
+    </script>
+    """
+    if hasattr(st, "iframe"):
+        st.iframe(codigo, height=1)
+    else:
+        components.html(codigo, height=0)
 
 def menu_barra():
     with st.sidebar:
