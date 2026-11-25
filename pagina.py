@@ -1,7 +1,12 @@
 import streamlit as st
 import time
 import pandas as pd
+import streamlit.components.v1 as components
+from pathlib import Path
 
+BASE = Path(__file__).parent
+
+st.set_page_config(page_title="Convivencia digital UNAL", page_icon=str(BASE / "U.png"))
 
 st.set_page_config(page_title="Convivencia digital UNAL", page_icon="U.png")
 
@@ -17,6 +22,24 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+def subir_al_inicio(pagina):
+    components.html(
+        f"""
+        <!-- {pagina} -->
+        <script>
+            const doc = window.parent.document;
+            const zonas = [
+                doc.querySelector('[data-testid="stMain"]'),
+                doc.querySelector('section.main'),
+                doc.querySelector('.stMain'),
+            ];
+            zonas.forEach(z => {{ if (z) z.scrollTo({{top: 0, behavior: 'instant'}}); }});
+            window.parent.scrollTo(0, 0);
+        </script>
+        """,
+        height=0,
+    )
 
 def menu_barra():
     with st.sidebar:
@@ -86,22 +109,30 @@ tabla = {
     ],
 }
 
-introtxt = leer_txt("datos.txt", "=== INTRO")
-datostxt = leer_txt("datos.txt", "=== DATOS")
-vlctxt = leer_txt("datos.txt", "=== VIOLENCIA")
-cibtxt = leer_txt("datos.txt", "=== CIBER")
-convtxt = leer_txt("datos.txt", "=== CONVIVENCIA")
-dgtaltxt = leer_txt("datos.txt", "=== DIGITAL")
-marcotxt = leer_txt("datos.txt", "=== MARCO")
+ARCHIVO = BASE / "datos.txt"
+
+introtxt = leer_txt(ARCHIVO, "=== INTRO")
+datostxt = leer_txt(ARCHIVO, "=== DATOS")
+vlctxt = leer_txt(ARCHIVO, "=== VIOLENCIA")
+cibtxt = leer_txt(ARCHIVO, "=== CIBER")
+convtxt = leer_txt(ARCHIVO, "=== CONVIVENCIA")
+dgtaltxt = leer_txt(ARCHIVO, "=== DIGITAL")
+marcotxt = leer_txt(ARCHIVO, "=== MARCO")
 
 cons = {}
 for i in range(4):
-    cons[f"cons{i+1}"] = leer_txt("datos.txt", f"=== CONS{i+1}")
+    cons[f"cons{i+1}"] = leer_txt(ARCHIVO, f"=== CONS{i+1}")
 
 
 #Esto inicia el estado de la pagina
 if "pg" not in st.session_state:
     st.session_state.pg = "menu"
+
+# Sube al inicio solo cuando la sección cambió
+if st.session_state.get("pg_anterior") != st.session_state.pg:
+    st.session_state.pg_anterior = st.session_state.pg
+    subir_al_inicio(st.session_state.pg)
+
 
 #Pagina de menu
 if st.session_state.pg == "menu":
@@ -429,67 +460,5 @@ elif st.session_state.pg == "Rutas":
     st.divider()
     st.header("Marco legal (Para tener en cuenta)", text_alignment="center")
     st.markdown(marcotxt, text_alignment="center")
-    menu_barra()
-    menu_prin(1.1)
-
-
-elif st.session_state.pg == "Meta":
-    if estado["meta"] == 0:
-        st.session_state.pg = "Establecer meta"
-        st.rerun()
-    elif estado["meta"] > 0:
-        st.title("Menu meta de ahorro", text_alignment="center")
-        st.write(f"Saldo actual: ${saldo} Pesos")
-        st.write(f"Meta establecida: ${estado["meta"]} Pesos")
-        avance = saldo / estado["meta"]
-        spm = avance*100
-        spm = round(spm, 3)
-        if avance > 0 and avance < 1:
-            st.write(f"Lleva un {spm}% de su meta de ahorro (de ${estado["meta"]} Pesos)")
-            st.progress(avance)
-            st.write(f"le faltan ${estado["meta"]-saldo} Pesos para lograr su meta!")
-            st.write(f"Su saldo actual es de ${saldo} pesos")
-        if avance == 1:
-            st.write(f"FELICIDADES!!, Ha completado su meta en un {spm}%")
-            st.progress(avance)
-            st.balloons()
-        if avance > 1:
-            st.write(f"FELICIDADES!!, Ha completado y superado su meta en un {spm-100}% (Lleva el {spm}% de su meta completado)")
-            st.balloons()
-    if st.button("Modificar meta de ahorro"):
-        st.session_state.pg = "Establecer meta"
-        st.rerun()
-
-    menu_barra()
-    menu_prin(1.1)
-
-elif st.session_state.pg == "Establecer meta":
-    st.title(":orange[Establecer o modificar meta de ahorro]", text_alignment="center")
-    st.write(f"Saldo actual: ${saldo} Pesos")   
-    st.write(f"Meta establecida: ${estado["meta"]} Pesos")
-    st.info("Se recomienda pulsar enter para que se registre el valor puesto en el campo.")   
-    meta = st.number_input("Indique su meta de ahorro", min_value=0, step=1)
-    if meta < 0:
-        st.error("Su meta de ahorro establecida es invalida")
-    elif meta == 0:
-        st.warning("Seguro quiere dejar su meta de ahorro en 0? (Sera como si no tuviera meta de ahorro)")
-        if st.button(f"Aplicar meta de ahorro de ${meta} Pesos"):
-            estado["meta"] = meta
-            rec_diccionario()
-            st.rerun()            
-    elif meta > 0 and meta >= saldo:
-        if st.button(f"Aplicar meta de ahorro de ${meta} Pesos"):
-            estado["meta"] = meta
-            rec_diccionario()
-            st.session_state.pg = "Meta"
-            st.rerun()
-    elif meta < saldo:
-        st.warning("Su meta de ahorro es menor que su saldo, ¿Esta seguro de aplicar esta meta de ahorro?")
-        if st.button(f"Aplicar meta de ahorro de ${meta} Pesos"):
-            estado["meta"] = meta
-            rec_diccionario()
-            st.session_state.pg = "Meta"
-            st.rerun()
-    
     menu_barra()
     menu_prin(1.1)
