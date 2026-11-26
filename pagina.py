@@ -5,7 +5,7 @@ from pathlib import Path
 
 BASE = Path(__file__).parent
 
-st.set_page_config(page_title="Convivencia digital UNAL", page_icon=str(BASE / "U.png"))
+st.set_page_config(page_title="Convivencia digital UNAL", page_icon=str(BASE / "U.png"), layout="wide")
 
 st.markdown(
     """
@@ -16,14 +16,21 @@ st.markdown(
         line-height: 1.5;
     }
 
+    [data-testid="stSidebar"] hr {
+        margin: 0 !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+        gap: 0.5rem;
+    }
+
     iframe[srcdoc*="window.parent"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 0;
-    opacity: 0;
-    pointer-events: none;
-}
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -51,12 +58,17 @@ def subir_al_inicio(pagina):
 def menu_barra():
     with st.sidebar:
         st.title(":green[Índice de la página]")
-        st.button("Menú principal", icon="🏠", on_click=ir, args=("menu",), key="sb_menu")
-        st.button("¿Qué es?", icon=":material/question_mark:", on_click=ir, args=("Que es",), key="sb_que_es")
-        st.button("Formas de agresión", icon=":material/front_hand:", on_click=ir, args=("Agresion",), key="sb_agresion")
-        st.button("Consecuencias", icon=":material/warning:", on_click=ir, args=("Consecuencias",), key="sb_consecuencias")
-        st.button("Práctica: casos", icon=":material/settings_accessibility:", on_click=ir, args=("Casos",), key="sb_casos")
-        st.button(":red[**RUTAS DE ATENCIÓN**]", icon="📞", on_click=ir, args=("Rutas",), key="sb_rutas")
+        st.button("Menú principal", icon="🏠", on_click=ir, args=("menu",), key="sb_menu", type="tertiary")
+        st.divider()
+        st.button("¿Qué es?", icon=":material/question_mark:", on_click=ir, args=("Que es",), key="sb_que_es", type="tertiary")
+        st.divider()
+        st.button("Formas de agresión", icon=":material/front_hand:", on_click=ir, args=("Agresion",), key="sb_agresion", type="tertiary")
+        st.divider()
+        st.button("Consecuencias", icon=":material/warning:", on_click=ir, args=("Consecuencias",), key="sb_consecuencias", type="tertiary")
+        st.divider()
+        st.button("Práctica: casos", icon=":material/settings_accessibility:", on_click=ir, args=("Casos",), key="sb_casos", type="tertiary")
+        st.divider()
+        st.button(":red[**RUTAS DE ATENCIÓN**]", icon="📞", on_click=ir, args=("Rutas",), key="sb_rutas", type="tertiary")
 
 def menu_prin(bv):
     m1, m2, m3 = st.columns([1, bv, 1])
@@ -93,7 +105,7 @@ def ir(pagina):
 tabla = {
     "Mitos": [
         '"Es solo una broma"',
-        '"Si en internet, no es tan grave."',
+        '"Si es en internet, no es tan grave."',
         '"Es libertad de expresión"',
         '"En la universidad esto no pasa"'
     ],
@@ -138,7 +150,7 @@ if st.session_state.pg == "menu":
     st.divider()
     menu_barra()
     st.write(introtxt)
-    st.error("Si estas viviendo una agresion, ve directo a las rutas de atención.", icon=":material/warning:")
+    st.error("Si estás viviendo una agresión, ve directo a las rutas de atención.", icon=":material/warning:")
     st.divider()
     st.subheader(":green[**Datos para tener en cuenta:**]", text_alignment="center")
     st.markdown(datostxt)
